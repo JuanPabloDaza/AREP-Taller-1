@@ -43,6 +43,20 @@ Una vez ejecutado se debe acceder a traves de un buscador y con la direccion:
 127.0.0.1:35000
 ```
 
+## Descripcion del programa:
+
+### Diseño:
+
+En este programa se usa la clase HttpServer para responder las solicitudes REST que sean necesarias, dentro de la pagina principal hay un buscador que permite ingresar el nombre de la pelicula para que se busque la misma.
+
+Para la busqueda de la información primero se verifica que no este en el cache, el cache utiliza el modelo LRU (Least Recently Used), que consiste en ir eliminando las busquedas que menos se realicen con la finalidad de mejorar el tiempo de respuesta.
+
+Si la información no esta en el cache entonces se usa la clase APIConnection para establecer una conexión a la API externa y luego transformar la información solicitada en una tabla que la muestre al usuario.
+
+### Expansion:
+
+Para expandir la aplicacion se puede lograr por medio de la URI de la petición REST, se puede realizar otra página que utilice otra API y que dependiendo de como este construida la URI se utilice cada un metodo para cada API.
+
 ## Construido con:
 
 * [Maven](https://maven.apache.org/) - Manejo de dependecias.
